@@ -182,7 +182,7 @@ stage("Test") {
                         try {
                             sh "cd /home/jenkins/pim && yarn run webpack-test && yarn run acceptance"
                         } finally {
-                            archiveArtifacts allowEmptyArchive: true, artifacts: '/tmp/js-acceptance/**/*.png'
+                            archiveArtifacts allowEmptyArchive: true, artifacts: '/tmp/js-acceptance/*.png'
                         }
                     })
                 } else {
