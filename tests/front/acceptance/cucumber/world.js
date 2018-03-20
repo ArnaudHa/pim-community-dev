@@ -61,7 +61,9 @@ module.exports = function(cucumber) {
         if (Status.FAILED === scenario.result.status) {
             const { uri, line } = scenario.sourceLocation;
             const fileName = `${uri}:${line}.png`;
-            const filePath = path.join(os.tmpdir(), fileName.replace(/\//g, '__'));
+            const folder = path.join(os.tmpdir(), 'js-acceptance');
+
+            const filePath = path.join(folder, fileName.replace(/\//g, '__'));
             const imageBuffer = await this.page.screenshot({path: filePath});
 
             if (0 < this.consoleLogs.length) {
