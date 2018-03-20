@@ -81,8 +81,9 @@ module.exports = function(cucumber) {
             }
 
             console.log(`Screenshot available at ${filePath}`, 'text/plain');
+            await this.attach(imageBuffer, 'image/png');
 
-            return this.attach(imageBuffer, 'image/png');
+            return fs.writeFileSync(filePath, imageBuffer);
         }
 
         if (!this.parameters.debug) {
