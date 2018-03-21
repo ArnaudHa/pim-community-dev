@@ -82,12 +82,12 @@ module.exports = function(cucumber) {
 
             console.log(`Screenshot available at ${filePath}`);
             await this.attach(imageBuffer, 'image/png');
-            await fs.writeFile(filePath, imageBuffer);
-
-            await fs.stat(filePath, (err, stats) => {
-                if (err) return console.log('Error: ', err);
-                console.log('File exists at: ', filePath, stats);
-            });
+            // await fs.writeFile(filePath, imageBuffer);
+            //
+            // await fs.stat(filePath, (err, stats) => {
+            //     if (err) return console.log('Error: ', err);
+            //     console.log('File exists at: ', filePath, stats);
+            // });
 
             return;
         }
