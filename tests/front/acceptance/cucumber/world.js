@@ -1,4 +1,4 @@
-const { createUser } = require('./fixtures');
+const createUser = require('./factory/user');
 const puppeteer = require('puppeteer');
 const extensions = require(`${process.cwd()}/web/test_dist/extensions.json`);
 const fs = require('fs');

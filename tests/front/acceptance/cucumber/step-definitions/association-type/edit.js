@@ -1,10 +1,10 @@
 module.exports = function(cucumber) {
     const {Given, Then} = cucumber;
     const assert = require('assert');
-    const { createAssociationType } = require('../../fixtures');
+    const createAssociationType = require('../../factory/association-type');
 
     Given('the edit form for association type {string} is displayed', async function (string) {
-        const associationType = createAssociationType(123, 'X_SELL', {
+        const associationType = createAssociationType('X_SELL', {
             en_US: 'Cross sell',
             fr_FR: 'Vente croisée'
         });

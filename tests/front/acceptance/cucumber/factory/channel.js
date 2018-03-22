@@ -1,5 +1,5 @@
 const capitalize = source => source.replace(/\b\w/g, l => l.toUpperCase());
-const { createLocale } = require('./locale');
+const createLocale = require('./locale');
 
 module.exports = (code, locales = [], labels = null, category_tree = null) => {
     const activatedLocaleCode = ['en_US', 'fr_FR', 'de_DE'];
@@ -9,12 +9,9 @@ module.exports = (code, locales = [], labels = null, category_tree = null) => {
         code,
         currencies: ['EUR', 'USD'],
         locales: localeCodes.map(localeCode => createLocale(localeCode)),
-        category_tree: null !== category_tree ? category_tree : 'master',
+        category_tree: category_tree || 'master',
         conversion_units: [],
-        labels:
-      null !== labels
-          ? labels
-          : activatedLocaleCode.reduce((result, localeCode) => {
+        labels: labels || activatedLocaleCode.reduce((result, localeCode) => {
               result[localeCode] = capitalize(code);
 
               return result;
