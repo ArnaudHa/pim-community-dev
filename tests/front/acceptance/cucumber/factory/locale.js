@@ -1,3 +1,8 @@
+/**
+ * Generate a locale
+ * @param {Object} fields
+ * @returns {Object}
+ */
 module.exports = function createLocale(fields) {
     const { code } = fields;
     const regions = { de: 'Germany', fr: 'France', us: 'United States'};

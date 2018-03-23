@@ -1,3 +1,16 @@
+/**
+ * Generate a product
+ *
+ * @param {String} identifier
+ * @param {Array} values
+ * @param {Boolean} enabled
+ * @param {String} family
+ * @param {Object} label
+ * @param {String} model_type
+ * @param {Object} image
+ * @param {Array} completenesses
+ * @returns {Object}
+ */
 const createProduct = (
     identifier,
     values = [],

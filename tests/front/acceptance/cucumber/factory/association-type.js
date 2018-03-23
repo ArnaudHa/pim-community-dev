@@ -15,6 +15,13 @@ function createLabels({
     return labels;
 }
 
+/**
+ * Generate an association type
+ *
+ * @param {String} code
+ * @param {Object} locales
+ * @returns {Object}
+ */
 module.exports = (
     code = 'code',
     locales = {
