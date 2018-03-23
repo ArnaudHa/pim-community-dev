@@ -4,3 +4,4 @@ Feature: Displaying the association type edit form
         And the edit form for association type "Cross sell" is displayed
         Then the title of the page should be "Cross sell"
         And the association type code should be "X_SELL"
+        And the code field should be disabled
