@@ -1,5 +1,5 @@
 module.exports = function(cucumber) {
-    const {Given, Then} = cucumber;
+    const { Given, Then } = cucumber;
     const assert = require('assert');
     const createAssociationType = require('../../factory/association-type');
 
@@ -21,7 +21,9 @@ module.exports = function(cucumber) {
             });
         }, associationType);
 
-        await this.page.waitFor('.AknTitleContainer-title');
+        const titleElement = await this.page.waitFor('.AknTitleContainer-title');
+        const pageTitle = await (await titleElement.getProperty('textContent')).jsonValue();
+        assert.equal(pageTitle, string);
     });
 
     Then('the association type code should be {string}', async function (string) {
