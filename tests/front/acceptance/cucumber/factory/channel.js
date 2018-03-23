@@ -12,9 +12,9 @@ module.exports = (code, locales = [], labels = null, category_tree = null) => {
         category_tree: category_tree || 'master',
         conversion_units: [],
         labels: labels || activatedLocaleCode.reduce((result, localeCode) => {
-              result[localeCode] = capitalize(code);
+            result[localeCode] = capitalize(code);
 
-              return result;
-          }, {})
+            return result;
+        }, {})
     };
 };

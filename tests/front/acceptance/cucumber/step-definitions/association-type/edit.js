@@ -4,6 +4,7 @@ module.exports = function(cucumber) {
     const createAssociationType = require('../../factory/association-type');
 
     Given('the edit form for association type {string} is displayed', async function (string) {
+
         const associationType = createAssociationType('X_SELL', {
             en_US: 'Cross sell',
             fr_FR: 'Vente croisée'

@@ -1,6 +1,6 @@
 function createLabels({
     locales = {},
-    addPrefix = false,
+    addPrefix = true,
     addChangeset = false
 }) {
     const labels = {};
@@ -16,19 +16,19 @@ function createLabels({
 }
 
 module.exports = (
-    code = 'blah',
+    code = 'code',
     locales = {
-        en_US: 'Association type',
-        fr_FR: 'Type association',
-        de_DE: 'Blah'
+        en_US: 'Type description',
+        fr_FR: 'Description de type',
+        de_DE: 'Type'
     }
 ) => {
-    const updatedDate = '03/07/2018 09:35 AM';
-    const id = 'id for asstype';
-
-    const labels = createLabels({locales});
-    const labelSnapshot = createLabels({ locales, addPrefix: true, addChangeset: true });
-    const labelChangeset = createLabels({ locales, addPrefix: true });
+    const author = 'System';
+    const updatedDate = new Date();
+    const id = '123-456';
+    const labels = createLabels({ locales, addPrefix: false });
+    const labelSnapshot = createLabels({ locales, addChangeset: true });
+    const labelChangeset = createLabels({ locales });
 
     return {
         code,
@@ -39,7 +39,7 @@ module.exports = (
             model_type: 'association_type',
             created: {
                 id,
-                author: 'system - Removed user',
+                author,
                 resource_id: id,
                 snapshot: { code, ...labelSnapshot },
                 changeset: {
@@ -53,7 +53,7 @@ module.exports = (
             },
             updated: {
                 id,
-                author: 'system - Removed user',
+                author,
                 resource_id: id,
                 snapshot: { code, ...labelSnapshot },
                 changeset: {
