@@ -10,6 +10,7 @@ parameters:
     pim_enrich.controller.file.class:                         Pim\Bundle\EnrichBundle\Controller\FileController
     pim_enrich.controller.rest.association_type.class:        Pim\Bundle\EnrichBundle\Controller\Rest\AssociationTypeController
     pim_enrich.controller.rest.attribute.class:               Pim\Bundle\EnrichBundle\Controller\Rest\AttributeController
+    pim_enrich.controller.rest.catalog_attribute.class:       Pim\Bundle\EnrichBundle\Controller\Rest\CatalogAttributeController
     pim_enrich.controller.rest.attribute_type.class:          Pim\Bundle\EnrichBundle\Controller\Rest\AttributeTypeController
     pim_enrich.controller.rest.attribute_group.class:         Pim\Bundle\EnrichBundle\Controller\Rest\AttributeGroupController
     pim_enrich.controller.rest.category.class:                Pim\Bundle\EnrichBundle\Controller\Rest\CategoryController
@@ -196,6 +197,13 @@ services:
             - '@pim_enrich.normalizer.attribute'
             - '@translator'
             - '@pim_catalog.doctrine.query.attribute_is_an_family_variant_axis'
+
+    pim_enrich.controller.rest.catalog_attribute:
+        class: '%pim_enrich.controller.rest.catalog_attribute.class%'
+        arguments:
+            - '@pim_catalog.repository.attribute'
+            - '@pim_internal_api_serializer'
+            - '@pim_user.context.user'
 
     pim_enrich.controller.rest.attribute_type:
         class: '%pim_enrich.controller.rest.attribute_type.class%'

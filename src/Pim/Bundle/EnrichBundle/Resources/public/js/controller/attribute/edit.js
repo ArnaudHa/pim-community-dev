@@ -36,7 +36,7 @@ function (
             fetcherRegistry.getFetcher('locale').clear();
             fetcherRegistry.getFetcher('measure').clear();
 
-            return fetcherRegistry.getFetcher('attribute').fetch(route.params.code, {cached: false})
+            return fetcherRegistry.getFetcher('catalog_attribute').fetch(route.params.code, {cached: false})
                 .then((attribute) => {
                     var label = _.escape(
                         i18n.getLabel(

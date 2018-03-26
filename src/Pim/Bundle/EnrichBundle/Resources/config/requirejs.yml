@@ -116,6 +116,12 @@ config:
                         urls:
                             list: pim_enrich_attribute_rest_index
                             get: pim_enrich_attribute_rest_get
+                catalog_attribute:
+                    module: pim/attribute-fetcher
+                    options:
+                        identifier_type: pim_catalog_identifier
+                        urls:
+                            get: pim_enrich_catalog_attribute_rest_get
                 attribute-type:
                     module: pim/base-fetcher
                     options:

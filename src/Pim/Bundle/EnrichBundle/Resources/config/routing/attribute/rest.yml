@@ -28,3 +28,10 @@ pim_enrich_attribute_rest_remove:
     requirements:
         identifier: '[a-zA-Z0-9_]+'
     methods: [DELETE]
+
+pim_enrich_catalog_attribute_rest_get:
+    path: /catalog/{identifier}
+    defaults: { _controller: pim_enrich.controller.rest.catalog_attribute:getAction }
+    requirements:
+        identifier: '[a-zA-Z0-9_]+'
+    methods: [GET]
